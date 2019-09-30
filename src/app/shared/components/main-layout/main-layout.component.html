@@ -1,0 +1,54 @@
+
+<div  class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+        <mat-toolbar color="primary" class="example-toolbar">
+          <button *ngIf="isLoggedIn" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+          <h1 *ngIf="isLoggedIn" class="example-app-name">Menu</h1>
+          <div *ngIf="!isLoggedIn" class="ath-links">
+            <button [routerLink]="['/auth/login']" routerLinkActive="router-link-active"  mat-button>Login</button>
+            <button [routerLink]="['/auth/register']" routerLinkActive="router-link-active"  mat-button>Register</button>
+          </div> 
+          <div class="ath-links" *ngIf="isLoggedIn">
+              <div *ngIf="permission == 'user'" class="cart-icon">
+                <button mat-button [matMenuTriggerFor]="Menu">
+                    <mat-icon  matBadge={{amountInCart}} matBadgeColor="warn">shopping_cart</mat-icon>
+                </button>
+                <mat-menu #Menu="matMenu" xPosition="before">
+                  <div (click)=null mat-menu-item disabled *ngFor="let book of booksInCart"> 
+                    <button (click)=moveItem(book._id)>-</button>
+                    <span>{{book.title}}({{book.count}})</span>
+                    <button  (click)=addItem(book._id)>+</button>
+                  </div>
+                  <p mat-menu-item>Total price: {{totalPrice}} USD</p>
+                </mat-menu>
+              </div>
+              <ngx-avatar class="avatar" src={{dataUser.userImg}}></ngx-avatar>
+              <button mat-button [matMenuTriggerFor]="beforeMenu">Welcome  {{dataUser.login}}!</button>
+              <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <button mat-menu-item routerLink="user-account">My account</button>
+                <button (click)="logout()" mat-menu-item>Logout</button>
+              </mat-menu>
+          </div>
+        </mat-toolbar>
+      
+        <mat-sidenav-container class="example-sidenav-container"
+                               [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+          <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            <mat-nav-list *ngIf="dataUser">
+              <span *ngFor="let nav of fillerNavUser">
+                <a mat-list-item *ngIf="dataUser.permission && dataUser.permission == 'user'" routerLink={{nav.path}}>{{nav.title}}</a>
+              </span>
+              <span *ngFor="let nav of fillerNavAdmin">
+                  <a mat-list-item *ngIf="dataUser.permission && dataUser.permission == 'admin'" routerLink={{nav.path}}>{{nav.title}}</a>
+                </span>
+            </mat-nav-list>
+          </mat-sidenav>
+          
+          <mat-sidenav-content id="content">
+                  <router-outlet></router-outlet>
+                  <mat-toolbar class="footer"color='primary'> hello </mat-toolbar>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+      </div>
+
+

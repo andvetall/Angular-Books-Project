@@ -1,0 +1,58 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="usersData">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="login">
+      <th mat-header-cell *matHeaderCellDef> Login </th>
+      <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="website">
+      <th mat-header-cell *matHeaderCellDef> Website </th>
+      <td mat-cell *matCellDef="let element"> {{element.website}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="img">
+        <th mat-header-cell *matHeaderCellDef> Image </th>
+        <td mat-cell *matCellDef="let element"><img class="table-image" src={{element.userImg}}  alt="bookImage"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+          <th mat-header-cell *matHeaderCellDef> Mobile </th>
+          <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+    </ng-container>
+
+    <ng-container  matColumnDef="delete">
+      <th class="edit" mat-header-cell *matHeaderCellDef> Delete User </th>
+      <td class="edit" mat-cell *matCellDef="let element"> 
+          <button mat-raised-button (click)="moveUser(element._id)">
+              <i  class="material-icons">
+                  delete
+                </i> 
+          </button>
+        
+      </td>
+    </ng-container>
+    
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+    
+  </mat-paginator>
+</div>

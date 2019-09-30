@@ -1,0 +1,28 @@
+.example-card {
+    max-width: 400px;
+    width: 250px;
+    margin: 40px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .app-page{
+    display: flex;
+    margin: 40px auto 100px;
+    padding: 20px 17%;
+    flex-wrap: wrap;
+  }
+  .user-account-wrapper{
+    display: block;
+    width: 100vw;
+    margin: 30px auto 100px;
+    & * {
+      display: flex;
+      margin: 0 43%;
+  }
+  }
+.image-input, #img-upload, .mat-input-element{
+  margin: 0 !important;
+}

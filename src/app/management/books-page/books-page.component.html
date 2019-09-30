@@ -1,0 +1,26 @@
+<form [formGroup]="searchForm" class="search-form">
+        <mat-form-field>
+            <input matInput placeholder="Search" formControlName="serchBook" >
+        </mat-form-field>
+     </form>
+ <div class="app-page"> 
+   
+     
+    <mat-card *ngFor="let book of books" class="example-card">
+            <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{book.title}}</mat-card-title>
+            <mat-card-subtitle>{{book.amount}} - book/s</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{book.img}} alt="Photo of a book">
+            <mat-card-content>
+            <p>
+                {{book.description}}
+            </p>
+            </mat-card-content>
+            <mat-card-actions>
+            <button mat-button id={{book._id}} (click)=addItem(book._id)>Add to Cart</button>
+            <button mat-button>Details</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>   

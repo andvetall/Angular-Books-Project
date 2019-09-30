@@ -1,0 +1,32 @@
+
+table {
+  width: 100%;
+}
+.table-image{
+  max-height: 35px;
+}
+.mat-elevation-z8{
+  width: 100vw;
+  padding: 30px 30px 100px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.edit{
+  width: 100px;
+  text-align: center;
+}
+.material-icons{
+  cursor: pointer;
+}
+.image-in-input{
+  position: absolute;
+  display: flex;
+  left: -110px;
+  top: 35px;
+}
+.image-in-input img{
+  max-width: 35px;
+}
+#img-upload{
+  width: 200px;
+}

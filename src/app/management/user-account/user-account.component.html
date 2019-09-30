@@ -1,0 +1,41 @@
+<div>
+    <form  [formGroup]='formEditUser' class="user-account-wrapper" >
+        <mat-form-field class="example-full-width">
+            <input class="qwerty" matInput  placeholder="Image: {{formEditUser.value.userImg}}" formControlName="userImg" readonly>
+            <!-- <div class="image-in-input" > -->
+                <img class="image-input" src={{userData.userImg}} alt="bookToPassImage">
+                <input (change)="getBase64($event.target.files[0])" id="img-upload" type="file" name="image" >
+            <!-- </div> -->
+        </mat-form-field>
+            <mat-form-field  class="example-full-width">
+                <input matInput value={{userData.email}} placeholder="Email: {{formEditUser.value.email}}" formControlName=email>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input  matInput value={{userData.login}} placeholder="Login: {{formEditUser.value.login}}" formControlName="login">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input  matInput value={{userData.website}} placeholder="Website: {{formEditUser.value.website}}" formControlName="website">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input  matInput type="number" value={{userData.mobile}} placeholder="Mobile: {{formEditUser.value.mobile}}" formControlName="mobile">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input  matInput value={{userData.country}} placeholder="Country: {{formEditUser.value.country}}" formControlName="country">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input  matInput  value={{userData.city}} placeholder="City: {{formEditUser.value.city}}" formControlName="city">
+            </mat-form-field>         
+            <mat-form-field class="example-full-width">
+                    <input  matInput value={{userData.street}} placeholder="Street: {{formEditUser.value.street}}" formControlName="street">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input  matInput value={{userData.house}} placeholder="House: {{formEditUser.value.house}}" formControlName="house">
+            </mat-form-field>         
+            <mat-form-field class="example-full-width">
+                <input  matInput value={{userData.appartment}} placeholder="Appartment: {{formEditUser.value.appartment}}" formControlName="appartment">
+            </mat-form-field>
+            <button mat-button (click)="updateUser(userData._id)">Update</button>
+    </form>
+    
+    
+    </div>

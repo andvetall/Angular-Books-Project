@@ -1,0 +1,30 @@
+<div>
+<form  [formGroup]='formAddBook' class="register-wrapper" >
+        <mat-form-field  class="example-full-width">
+            <input matInput value={{bookToPass.title}} placeholder="Title" formControlName=title>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input  matInput type="number" value={{bookToPass.amount}} placeholder="Amount" formControlName="amount">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input  matInput value={{bookToPass.description}} placeholder="Description" formControlName="description">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input  matInput type="number" value={{bookToPass.price}} placeholder="Price(USD)" formControlName="price">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input class="qwerty" matInput  placeholder="Image" formControlName="img" readonly>
+            <div class="image-in-input" >
+                <input (change)="getBase64($event.target.files[0])" id="img-upload" type="file" name="image" >
+                <img class="image-input" src={{bookToPass.img}} alt="bookToPassImage">
+            </div>
+            
+            
+        </mat-form-field>
+                 
+        
+</form>
+
+<button mat-button (click)="uploadBook()">Add</button>
+</div>
+     

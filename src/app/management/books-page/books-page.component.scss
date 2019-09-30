@@ -1,0 +1,20 @@
+.example-card {
+    max-width: 400px;
+    width: 250px;
+    margin: 40px;
+  }
+  .search-form{
+    position: fixed;
+    right: 50%;
+    top: 5px;
+  }
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .app-page{
+    display: flex;
+    margin: 40px auto 100px;
+    padding: 20px 17%;
+    flex-wrap: wrap;
+  }
